@@ -1,0 +1,92 @@
+<header class="header">
+  {{#link 'help_center'}}
+    <img class="header-logo" height="80" src="{{settings.logo}}" alt="{{t 'logo'}}">
+  {{/link}}
+  <div class="header-nav container">
+  	{{#each categories}}
+      {{#if ../has_multiple_categories}}
+        <a href='{{url}}' class="blocks-item-link">{{name}}</a>
+      {{else}}
+        {{#each sections}}
+          <a href='{{url}}' class="blocks-item-link">{{name}}</a>
+        {{/each}}
+      {{/if}}
+    {{/each}}
+  </div>
+  {{search submit=false instant=true class='search header-search'}}
+</header>
+
+<!-- <section class="section hero">
+  <div class="hero-inner">
+  </div>
+</section> -->
+
+<div class="container">
+  <section class="section home-head">
+    <h3>Welcome to display.io support</h3>
+    <p>Learn about display.io products, view online manuals, get the latest downloads, and more. Connect with other users, or get service, support, and professional advice from
+display.io.</p>
+  </section>
+  
+  <section class="section knowledge-base">
+    <section class="categories home-page blocks">
+      <ul class="blocks-list home-page">
+        {{#each categories}}
+          {{#if ../has_multiple_categories}}
+            <li class="blocks-item">
+              <a href='{{url}}' class="blocks-item-link">
+                <div class="platform-link"></div>
+              </a>
+            </li>
+          {{else}}
+            {{#each sections}}
+              <li class="blocks-item {{#if internal}}blocks-item-internal{{/if}}">
+                <a href='{{url}}' class="blocks-item-link">
+									<div class="platform-link"></div>
+								</a>
+<!--                 <a href='{{url}}' class="blocks-item-link">
+                  <h4 class="blocks-item-title">
+                    {{name}}
+                    {{#if internal}}
+                      <span class="icon-lock" title="{{t 'internal'}}"></span>
+                    {{/if}}
+                  </h4>
+                  <p class="blocks-item-description">{{excerpt description}}</p>
+                </a> -->
+              </li>
+            {{/each}}
+          {{/if}}
+        {{/each}}
+      </ul>
+      {{pagination}}
+    </section>
+
+    {{#if promoted_articles}}
+      <section class="articles">
+        <h3>{{t 'promoted_articles'}}</h3>
+        <ul class="article-list promoted-articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles-item">
+              <a href="{{url}}">
+                {{title}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+  </section>
+
+<!--   {{#if help_center.community_enabled}}
+    <section class="section community">
+      <h2>{{t 'community'}}</h2>
+      {{#link 'community' class='community-link'}}
+        {{t 'join_conversation'}}
+      {{/link}}
+    </section>
+  {{/if}}
+
+	<section class="section activity">
+    {{recent_activity}}
+  </section> -->
+</div>
